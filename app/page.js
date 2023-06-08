@@ -1,23 +1,37 @@
 import Image from "next/image";
 import Link from "next/link";
 
-//  Use next/navigation instead.
+export const meta = () => (
+  <meta
+    name="description"
+    content="A collection of the best free Tailwind CSS Hero Patterns"
+  />
+);
 
-export default function Home() {
-  const number = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+export default async function Home() {
+  // /category/all"
+  const res = await fetch(
+    "https://api-vande-rastra.vercel.app/api/v1/category/all",
+    {
+      cache: "no-store",
+    }
+  );
+
+  let data = await res.json();
+  data = data.categorys;
 
   return (
     <div className="flex">
-      {number.map((num) => (
+      {data.map((num, i) => (
         <div
-          key={num}
+          key={i}
           className="flex  items-center justify-center w-full h-screen bg-gray-800"
         >
           <Link
-            className="px-4 py-2 text-white bg-blue-500 rounded-md"
-            href={`/${num}`}
+            className="px-4 py-2 text-white bg-blue-500 rounded-md font-bold"
+            href={`/${num.slug}`}
           >
-            {num}
+            {num.name}
           </Link>
         </div>
       ))}
