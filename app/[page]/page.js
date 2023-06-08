@@ -11,7 +11,14 @@ export default async function Page({ params }) {
   const data = await res.json();
   return (
     <>
-      <Head></Head>
+      <Head>
+        <title>{data.title}</title>
+        <meta name="description" content={data.body} />
+        <meta name="og:title" content={data.title} />
+        <meta name="og:description" content={data.body} />
+        <meta name="twitter:title" content={data.title} />
+      </Head>
+
       <div className="grid grid-cols-6 gap-x-6 gap-y-3">
         <div className="col-span-full space-y-3 lg:col-span-4">
           <h1 className="truncate text-2xl font-medium capitalize text-gray-200">
