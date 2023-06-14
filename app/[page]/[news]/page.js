@@ -1,3 +1,4 @@
+import NewsDetailPage from "@/sections/NewsDetailPage";
 import Image from "next/image";
 import React from "react";
 
@@ -16,24 +17,7 @@ export default async function Page({ params }) {
 
   return (
     <>
-      <div className="flex flex-wrap justify-start items-start">
-        <div className="w-full flex flex-col justify-start items-start">
-          {data.title}
-        </div>
-        <Image
-          src={data.attach_file}
-          alt="Picture of the author"
-          width={500}
-          height={500}
-        />
-        <div className="w-full flex flex-col justify-start items-start m-2">
-          {data.descriptions.map((num, i) => (
-            <div key={i} className="m-2">
-              {num.news_descriptions}
-            </div>
-          ))}
-        </div>
-      </div>
+      <NewsDetailPage news={data} />
     </>
   );
 }

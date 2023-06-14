@@ -105,7 +105,7 @@ export default function HomeNews({ newsAllData = [], newsLoading }) {
                     <div className="flex mb-8 w-full hoverline">
                       <div
                         className="w-1/4 cursor-pointer"
-                        onClick={() => handlepush(item?.seoSlug)}
+                        onClick={() => push(`/page/${item?.seoSlug}`)}
                       >
                         {console.log(item, "item")}
                         <div className="relative aspect-square w-full p-4 overflow-hidden ">
@@ -133,7 +133,7 @@ export default function HomeNews({ newsAllData = [], newsLoading }) {
                                     : "#4cd965"
                                   : "#ff4f00",
                             }}
-                            onClick={() => push(`/news/${item?.categorySlug}`)}
+                            onClick={() => push(`/${item?.categorySlug}`)}
                           >
                             {item.categorySlug}
                           </div>
@@ -141,7 +141,7 @@ export default function HomeNews({ newsAllData = [], newsLoading }) {
 
                         <div
                           className="flex text-justify w-full  my-4 cursor-pointer"
-                          onClick={() => handlepush(item?.seoSlug)}
+                          onClick={() => push(`/page/${item?.seoSlug}`)}
                         >
                           <a
                             className={` text-base  leading-6 font-bold font-sans tracking-wide  overflow-hidden `}

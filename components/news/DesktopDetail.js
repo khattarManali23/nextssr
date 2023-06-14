@@ -1,7 +1,7 @@
 import { Box, Grid, Skeleton } from "@mui/material";
 import moment from "moment";
 import Image from "next/image";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { BsFacebook, BsInstagram, BsTwitter, BsWhatsapp } from "react-icons/bs";
 import { FaFacebookF } from "react-icons/fa";
@@ -289,7 +289,7 @@ export const OtherData = ({
   if (advertisementError) return <ErrorScreen />;
 
   const handlepush = (id) => {
-    push(`/news/detail/${id}`);
+    push(`/page/${id}`);
   };
 
   return (

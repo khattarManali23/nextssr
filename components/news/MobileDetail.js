@@ -1,7 +1,7 @@
 import { Box, Grid, Skeleton } from "@mui/material";
 import moment from "moment";
 import Image from "next/image";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { BsFacebook, BsInstagram, BsTwitter, BsWhatsapp } from "react-icons/bs";
 import { FaFacebookF } from "react-icons/fa";
@@ -102,7 +102,7 @@ const DesktopDetail = ({ oneNewsData = {}, data }) => {
   if (newsError || categoriesError) return <ErrorScreen />;
 
   const filterCardData = (slug) => {
-    push(`/${slug}`);
+    push(`page/${slug}`);
   };
 
   return (
