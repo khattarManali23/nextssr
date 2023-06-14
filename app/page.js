@@ -1,3 +1,4 @@
+import { HomePage } from "@/components/home";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -19,22 +20,18 @@ export default async function Home() {
 
   let data = await res.json();
   data = data.categorys;
+  const news = await fetch(
+    "https://api-vande-rastra.vercel.app/api/v1/newsmanagement/all",
+    {
+      cache: "no-store",
+    }
+  );
+  let newsData = await news.json();
+  newsData = newsData.data;
 
   return (
     <div className="flex">
-      {data.map((num, i) => (
-        <div
-          key={i}
-          className="flex  items-center justify-center w-full h-screen bg-gray-800"
-        >
-          <Link
-            className="px-4 py-2 text-white bg-blue-500 rounded-md font-bold"
-            href={`/${num.slug}`}
-          >
-            {num.name}
-          </Link>
-        </div>
-      ))}
+      <HomePage allCategories={data} allNews={newsData} />
     </div>
   );
 }

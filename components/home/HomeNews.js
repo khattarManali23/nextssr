@@ -1,7 +1,7 @@
 import { Skeleton } from "@mui/material";
 import moment from "moment";
 import Image from "next/image";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 export default function HomeNews({ newsAllData = [], newsLoading }) {
   const { push } = useRouter();

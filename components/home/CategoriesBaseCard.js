@@ -1,6 +1,6 @@
 import { Skeleton } from "@mui/material";
 import Image from "next/image";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { TbBrandWhatsapp } from "react-icons/tb";
 import Share from "../../assets/svg/share";
 import { useGetWhatsappLink } from "../../services/whatsappService";

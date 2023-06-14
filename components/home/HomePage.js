@@ -15,6 +15,7 @@ const DynamicHomeNews = dynamic(() => import("./HomeNews"));
 const DynamicMobileHomeNews = dynamic(() => import("./MobileHomeNews"));
 
 export default function HomePage({ allCategories, allNews }) {
+  console.log(allNews, allCategories, "allNews, allCategories");
   return (
     <div>
       <DefaultSeo {...GlobalSEO["/"]} {...GlobalSEO} />
