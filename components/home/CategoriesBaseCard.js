@@ -24,7 +24,7 @@ export default function CategoriesBaseCard({ cardData = [], newsLoading }) {
                   <div className="mb-[40px] hoverline">
                     <div
                       className="relative h-full w-full cursor-pointer"
-                      onClick={() => push(`/news/detail/${item?.seoSlug}`)}
+                      onClick={() => push(`/page/${item?.seoSlug}`)}
                     >
                       {newsLoading ? (
                         <Skeleton
@@ -85,7 +85,7 @@ export default function CategoriesBaseCard({ cardData = [], newsLoading }) {
                       ) : (
                         <div
                           className="flex text-left w-full"
-                          onClick={() => push(`/news/detail/${item?.seoSlug}`)}
+                          onClick={() => push(`/page/${item?.seoSlug}`)}
                         >
                           <a className=" text-xl font-bold mt-3.5  overflow-hidden cursor-pointer">
                             <span className="">{item.title}</span>
@@ -111,7 +111,7 @@ export default function CategoriesBaseCard({ cardData = [], newsLoading }) {
                         <h5
                           className="text-[1.05rem] font-normal cursor-pointer
                     flex text-left mb-3.5 mt-0  leading-[1.50rem]"
-                          onClick={() => push(`/news/detail/${item?.seoSlug}`)}
+                          onClick={() => push(`/page/${item?.seoSlug}`)}
                         >
                           {item.short_description}
                         </h5>

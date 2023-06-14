@@ -82,7 +82,7 @@ export default function NewsPage({ data, news }) {
                     <div className="   hoverline">
                       <div
                         className="relative h-full w-full overflow-hidden cursor-pointer"
-                        onClick={() => push(`/news/detail/${item?.seoSlug}`)}
+                        onClick={() => push(`/page/${item?.seoSlug}`)}
                       >
                         <Image
                           loading="lazy"
@@ -108,7 +108,7 @@ export default function NewsPage({ data, news }) {
                                   : "#4cd965"
                                 : "#ff4f00",
                           }}
-                          onClick={() => push(`/news/detail/${item?.seoSlug}`)}
+                          onClick={() => push(`/page/${item?.seoSlug}`)}
                         >
                           {item.categorySlug}
                         </div>
@@ -116,7 +116,7 @@ export default function NewsPage({ data, news }) {
 
                       <div
                         className="flex md:text-justify text-left w-full cursor-pointer"
-                        onClick={() => push(`/news/detail/${item?.seoSlug}`)}
+                        onClick={() => push(`/page/${item?.seoSlug}`)}
                       >
                         <a className=" text-2xl font-bold  leading-9 overflow-hidden">
                           <span className="">{item.title}</span>
@@ -126,7 +126,7 @@ export default function NewsPage({ data, news }) {
                       <p
                         className="text-lg font-normal 
                     flex md:text-justify text-left  leading- cursor-pointer"
-                        onClick={() => push(`/news/detail/${item?.seoSlug}`)}
+                        onClick={() => push(`/page/${item?.seoSlug}`)}
                       >
                         {item.short_description}
                       </p>
