@@ -90,7 +90,7 @@ const DesktopFooter = () => {
                   <li
                     className="text-[#cecece] text-lg cursor-pointer"
                     key={index}
-                    onClick={() => push(`/news/${item?.slug}`)}
+                    onClick={() => push(`/${item?.slug}`)}
                   >
                     {item?.name}
                   </li>

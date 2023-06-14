@@ -10,7 +10,7 @@ export default function HomeNews({ newsAllData = [], newsLoading }) {
 
   const handlepush = (id) => {
     console.log(id, "id");
-    push(`/news/detail/${id}`);
+    push(`/${id}`);
   };
 
   return (
@@ -30,9 +30,8 @@ export default function HomeNews({ newsAllData = [], newsLoading }) {
           ) : (
             <div
               className="p-4 hoverline mb-8 cursor-pointer"
-              // onClick={() => handlepush(newsAllData[0]?.seoSlug)}
+              onClick={() => handlepush(newsAllData[0]?.seoSlug)}
             >
-              {console.log(newsAllData[0], "newsAllData[0]")}
               <div className="relative aspect-square w-full p-4 overflow-hidden">
                 <Image
                   fill

@@ -72,7 +72,7 @@ export default function DesktopNavbar() {
                         <div key={index} className=" ">
                           <Link
                             className="cursor-pointer w-36 "
-                            href={`/news/` + item?.slug}
+                            href={`/` + item?.slug}
                           >
                             {categoriesLoading ? (
                               <Skeleton

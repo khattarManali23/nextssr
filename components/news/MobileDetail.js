@@ -102,7 +102,7 @@ const DesktopDetail = ({ oneNewsData = {}, data }) => {
   if (newsError || categoriesError) return <ErrorScreen />;
 
   const filterCardData = (slug) => {
-    push(`/news/${slug}`);
+    push(`/${slug}`);
   };
 
   return (
