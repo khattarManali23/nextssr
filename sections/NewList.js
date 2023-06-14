@@ -1,16 +1,29 @@
+"use client";
+
+import CategoriesBaseCard from "@/components/home/CategoriesBaseCard";
+import { SITE_NAME } from "@/data/next-seo.data";
+import { useGetAllCategories } from "@/services/categoryServices";
 import { Skeleton } from "@mui/material";
+import { DefaultSeo } from "next-seo";
 import Image from "next/image";
-import { useRouter } from "next/router";
+import Link from "next/link";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import { ErrorScreen } from "../components/basics";
-import CategoriesBaseCard from "../components/home/CategoriesBaseCard";
-import { useGetAllCategories } from "../services/categoryServices";
 
-export default function NewsList() {
-  const [scrolled, setScrolled] = useState(false);
+export default function NewsPage({ data, news }) {
   const { push } = useRouter();
+  const { query } = useSearchParams();
+  const slug = query?.slug;
 
-  const { data, isLoading, isError } = useGetAllCategories();
+  console.log("slug", data);
+
+  const [scrolled, setScrolled] = useState(false);
+
+  const {
+    data: categoriesAllData,
+    isLoading: categoriesLoading,
+    isError: categoriesError,
+  } = useGetAllCategories();
 
   const changeNavbarShadow = () => {
     if (window.scrollY >= 63) {
@@ -23,16 +36,41 @@ export default function NewsList() {
     window.addEventListener("scroll", changeNavbarShadow);
   }, [scrolled]);
 
-  if (isLoading) {
-    return <Skeleton variant="rectangular" width="100%" height={500} />;
-  }
+  const filterCardData = (slug) => {
+    push(`/news/${slug}`);
+  };
 
-  if (isError) {
-    return <ErrorScreen />;
-  }
+  const filterAllData = () => {
+    push(`/`);
+  };
 
   return (
     <>
+      {/* <DefaultSeo
+        title={news?.name}
+        description="news page description"
+        openGraph={{
+          url: "https://www.terralogic.com/",
+
+          title: news?.name,
+          description: " news page description",
+          images: [
+            {
+              url: news?.icon,
+              width: 800,
+              height: 600,
+              alt: news?.name,
+            },
+          ],
+          site_name: SITE_NAME,
+        }}
+        twitter={{
+          handle: "@terralogic",
+          site: "@terralogic",
+          cardType: "summary_large_image",
+        }}
+      /> */}
+
       {/* desktop view */}
       <div className="md:block hidden font-sans">
         <div className="flex justify-center w-full text-center">
@@ -122,32 +160,33 @@ export default function NewsList() {
              gap-y-2 overflow-scroll "
                   >
                     <div
-                      //   onClick={() => filterAllData()}
+                      onClick={() => filterAllData()}
                       className="flex justify-center w-36 text-sm items-center tab_button py-2 px-4"
                     >
                       Home
                     </div>
-                    {data?.map((item, index) => {
+                    {categoriesAllData?.map((item, index) => {
                       return (
                         <>
-                          {isLoading ? (
+                          {categoriesLoading ? (
                             <div className="">
                               <Skeleton className="h-10 w-20 mx-3" />
                             </div>
                           ) : (
-                            <div
+                            <Link
+                              prefetch={true}
                               key={index}
-                              //   onClick={() => filterCardData(item?.slug)}
-                              //   className={`flex justify-center text-sm items-center ${
-                              //     slug == item?.slug
-                              //       ? "tab_button_active  py-2 px-4"
-                              //       : "tab_button py-2  px-4"
-                              //   }`}
+                              href={`/news/${item?.slug}`}
+                              className={`flex justify-center text-sm items-center ${
+                                slug == item?.slug
+                                  ? "tab_button_active  py-2 px-4"
+                                  : "tab_button py-2  px-4"
+                              }`}
                             >
                               <span className=" whitespace-nowrap">
                                 {item?.name}
                               </span>
-                            </div>
+                            </Link>
                           )}
                         </>
                       );
