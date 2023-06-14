@@ -6,6 +6,8 @@ import Logo from "../../assets/svg/Screenshotlogo.png";
 import { useGetAllAdvertisement } from "../../services/advertisementServices";
 import { FadeIn } from "../animate";
 import { AppCarousel, ErrorScreen } from "../basics";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from "react-responsive-carousel";
 
 export default function DesktopTopNavbar({ setpageLoading }) {
   const router = useRouter();
@@ -18,8 +20,9 @@ export default function DesktopTopNavbar({ setpageLoading }) {
   let newArray = advertisementAllData?.filter(
     (item) =>
       item?.banner_type?.replaceAll?.(" ", "")?.toLowerCase() ==
-        "navbarbanner" && item?.attach_banner != ""
+        "headerbanner" && item?.attach_banner != ""
   );
+  console.log("newArray", newArray);
 
   if (advertisementError) return <ErrorScreen />;
 
@@ -42,36 +45,37 @@ export default function DesktopTopNavbar({ setpageLoading }) {
             </div>
           </div>
 
-          <div className="md:col-span-3 lg:col-span-2">
+          <div className="md:col-span-3  lg:col-span-2">
             <div className="flex lg:justify-end justify-center w-full">
               <FadeIn durationTime="1s">
-                <AppCarousel
-                  {...{
-                    slidesToShow: 1,
-                    fade: false,
-                    autoplay: true,
-                    // infinite: NewsDetail?.length > 1 ? true : false,
-                    // autoplaySpped: 1000,
-                    autoplaySpeed: 2000,
-                  }}
+                <Carousel
+                  autoPlay={true}
+                  infiniteLoop={true}
+                  showThumbs={false}
+                  showStatus={false}
+                  showIndicators={false}
+                  showArrows={false}
+                  interval={5000}
+                  transitionTime={1000}
                 >
                   {advertisementAllData?.map((item, index) => {
                     return (
                       <div
-                        className="add-container h-28 w-3/4 relative"
                         key={index}
+                        className="relative h-28 w-3/4 border-2 border-red-900"
                       >
                         <Image
                           fill
                           loading="lazy"
-                          src={banner}
-                          className="w-full h-full object-fill"
+                          src={item?.attach_banner}
+                          className="w-full h-full object-cover "
                           alt="Sample image"
+                          onClick={() => router.push("/")}
                         />
                       </div>
                     );
                   })}
-                </AppCarousel>
+                </Carousel>
               </FadeIn>
             </div>
           </div>

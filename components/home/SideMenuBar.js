@@ -1,8 +1,10 @@
+"use client";
+
 import { Divider } from "@mui/material";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import { Stack } from "@mui/system";
-import { useRouter } from 'next/navigation'
+import { useRouter } from "next/navigation";
 import { Fragment, useState } from "react";
 import { AiFillPhone } from "react-icons/ai";
 import { BsInstagram, BsTwitter, BsWhatsapp } from "react-icons/bs";

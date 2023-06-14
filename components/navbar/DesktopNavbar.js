@@ -12,7 +12,6 @@ export default function DesktopNavbar() {
   const [scrolled, setScrolled] = useState(false);
 
   const asPath = usePathname();
-  console.log(asPath, "asPath");
 
   const {
     data: categoriesAllData,

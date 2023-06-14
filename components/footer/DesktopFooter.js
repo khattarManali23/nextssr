@@ -1,3 +1,5 @@
+"use client";
+
 import { Grid } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
@@ -23,10 +25,10 @@ const DesktopFooter = () => {
 
   return (
     <footer className="flex justify-center m-0 items-center w-full pt-4 bg-[#3b3939]">
-      <div className="container mx-auto">
+      <div className="container ">
         <Grid container>
           <Grid item xs={12} sm={12} md={12}>
-            <div className="flex justify-between items-center ">
+            <div className="flex justify-between items-center  py-2">
               <Link href={"/"}>
                 <div className="flex justify-start">
                   <Image
@@ -68,11 +70,11 @@ const DesktopFooter = () => {
           </Grid>
         </Grid>
 
-        <div className="border-b-2 border-[#494E51]" />
+        <div className="border-b-2 border-[#494E51] my-2" />
 
-        <div className="footer-bottom pt-2">
+        <div className="footer-bottom  pt-2">
           <ul
-            className=""
+            className="my-2 mb-4"
             style={{
               fontSize: "1.4rem",
               lineHeight: "2.4rem",
@@ -92,7 +94,7 @@ const DesktopFooter = () => {
                   >
                     {item?.name}
                   </li>
-                  <li>
+                  <li className="flex justify-center items-center">
                     <hr className="border-b-2 border-b-[#cecece] rotate-90 w-[16px]" />
                   </li>
                 </>
@@ -101,19 +103,19 @@ const DesktopFooter = () => {
             <li className="text-[#cecece] text-lg">
               <a href="#">Become A Reporter</a>
             </li>
-            <li>
+            <li className="flex justify-center items-center">
               <hr className="border-b-2 border-b-[#cecece] rotate-90 w-[16px]" />
             </li>
             <li className="text-[#cecece] text-lg">
               <Link href="/contact-us">Contact Us</Link>
             </li>
-            <li>
+            <li className="flex justify-center items-center">
               <hr className="border-b-2 border-b-[#cecece] rotate-90 w-[16px]" />
             </li>
             <li className="text-[#cecece] text-lg">
               <Link href="/privacy-policy">Terms And Conditions</Link>
             </li>
-            <li>
+            <li className="flex justify-center items-center">
               <hr className="border-b-2 border-b-[#cecece] rotate-90 w-[16px]" />
             </li>
             <li className="text-[#cecece] text-lg">

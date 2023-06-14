@@ -1,3 +1,5 @@
+"use client";
+
 import { DefaultSeo } from "next-seo";
 import dynamic from "next/dynamic";
 import { useEffect } from "react";
