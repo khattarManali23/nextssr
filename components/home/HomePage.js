@@ -18,20 +18,14 @@ export default function HomePage({ allCategories, allNews }) {
   console.log(allNews, allCategories, "allNews, allCategories");
   return (
     <div>
-      <DefaultSeo {...GlobalSEO["/"]} {...GlobalSEO} />
-
-      <div className="md:block hidden">
-        <FadeIn durationTime="1s">
-          <DynamicHomeNews newsAllData={allNews} />
-        </FadeIn>
+      <div className="md:flex justify-center items-center hidden">
+        <DynamicHomeNews newsAllData={allNews} />
       </div>
       <div className="md:hidden">
-        <FadeIn durationTime="1s">
-          <DynamicMobileHomeNews
-            categories={allCategories}
-            newsAllData={allNews}
-          />
-        </FadeIn>
+        <DynamicMobileHomeNews
+          categories={allCategories}
+          newsAllData={allNews}
+        />
       </div>
       <TredingNews />
     </div>

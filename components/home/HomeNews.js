@@ -14,7 +14,7 @@ export default function HomeNews({ newsAllData = [], newsLoading }) {
   };
 
   return (
-    <div className="flex justify-center w-full text-center   font-sans">
+    <div className="flex justify-center w-10/12 text-center   font-sans">
       <div className="container md:mt-8">
         <div className="grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1">
           {newsLoading ? (
