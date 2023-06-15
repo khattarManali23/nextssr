@@ -16,8 +16,8 @@ export default async function Page({ params }) {
   console.log(data, "11");
 
   return (
-    <>
+    <div className="">
       <NewsDetailPage news={data} />
-    </>
+    </div>
   );
 }

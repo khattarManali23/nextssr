@@ -18,6 +18,8 @@ import {
   TwitterShareButton,
   WhatsappShareButton,
 } from "react-share";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from "react-responsive-carousel";
 
 const DesktopDetail = ({ oneNewsData, data }) => {
   const {
@@ -98,7 +100,7 @@ const DesktopDetail = ({ oneNewsData, data }) => {
           </div>
         </Grid>
       </Grid>
-      <div className="mx-auto my-10 container">
+      <div className="mx-auto my-10 container ">
         <div class="grid lg:grid-cols-7 md:grid-cols-1 sm:grid-cols-1 grid-cols-1 md:gap-8 lg:gap-8">
           <div
             className="lg:col-span-5 md:col-span-4 px-4 md:px-0"
@@ -287,6 +289,7 @@ export const OtherData = ({
   }
 
   if (advertisementError) return <ErrorScreen />;
+  console.log(advertisementAllData, "newArray");
 
   const handlepush = (id) => {
     push(`/page/${id}`);
@@ -299,15 +302,13 @@ export const OtherData = ({
           {advertisementLoading ? (
             <Skeleton className="h-60 md:h-80 w-full" variant="rectangular" />
           ) : (
-            <AppCarousel
-              {...{
-                slidesToShow: 1,
-                fade: false,
-                autoplay: true,
-                infinite: NewsDetail?.length > 1 ? true : false,
-                // autoplaySpped: 1000,
-                autoplaySpeed: 2000,
-              }}
+            <Carousel
+              autoPlay={true}
+              infiniteLoop={true}
+              showThumbs={false}
+              showStatus={false}
+              showIndicators={false}
+              className="h-60 md:h-80 w-full"
             >
               {advertisementAllData?.map((item, index) => {
                 return (
@@ -325,7 +326,7 @@ export const OtherData = ({
                   </div>
                 );
               })}
-            </AppCarousel>
+            </Carousel>
           )}
         </div>
 
@@ -340,57 +341,63 @@ export const OtherData = ({
         <div className="relative mt-4 ">
           {newsAllData?.map((item, index) => {
             return (
-              <div key={index} onClick={() => handlepush(item?.seoSlug)}>
-                <div className="relative flex  hover:cursor-pointer hoverline md:mb-8 mb-4">
-                  <div className="relative mr-2.5 md:h-28 md:w-28 h-20 w-20 shrink-0 animate-opacityAnimation overflow-hidden">
-                    {newsAllLoading ? (
-                      <Skeleton
-                        className="h-full w-full"
-                        variant="rectangular"
-                      />
-                    ) : (
-                      <Image
-                        fill
-                        src={item?.attach_file}
-                        alt="logo"
-                        className="h-full w-full object-cover"
-                      />
-                    )}
-                  </div>
-
-                  <div className="w-full">
-                    {newsAllLoading ? (
-                      <div>
-                        <Skeleton
-                          className="h-4 w-full my-2"
-                          variant="rectangular"
-                        />
-                        <Skeleton
-                          className="h-4 w-full my-2"
-                          variant="rectangular"
-                        />
-                        <Skeleton
-                          className="h-4 w-3/4 my-2"
-                          variant="rectangular"
-                        />
-
-                        <Skeleton
-                          className="h-4 w-1/2 mt-6"
-                          variant="rectangular"
-                        />
+              <>
+                {index < 10 && (
+                  <div key={index} onClick={() => handlepush(item?.seoSlug)}>
+                    <div className="relative flex  hover:cursor-pointer hoverline md:mb-8 mb-4">
+                      <div className="relative mr-2.5 md:h-28 md:w-28 h-20 w-20 shrink-0 animate-opacityAnimation overflow-hidden">
+                        {newsAllLoading ? (
+                          <Skeleton
+                            className="h-full w-full"
+                            variant="rectangular"
+                          />
+                        ) : (
+                          <Image
+                            fill
+                            src={item?.attach_file}
+                            alt="logo"
+                            className="h-full w-full object-cover"
+                          />
+                        )}
                       </div>
-                    ) : (
-                      <>
-                        <div className="flex md:text-justify w-full text-left">
-                          <a className="text-base capitalize  overflow-hidden">
-                            <span className=" font-bold">{item?.title}</span>
-                          </a>
-                        </div>
-                      </>
-                    )}
+
+                      <div className="w-full">
+                        {newsAllLoading ? (
+                          <div>
+                            <Skeleton
+                              className="h-4 w-full my-2"
+                              variant="rectangular"
+                            />
+                            <Skeleton
+                              className="h-4 w-full my-2"
+                              variant="rectangular"
+                            />
+                            <Skeleton
+                              className="h-4 w-3/4 my-2"
+                              variant="rectangular"
+                            />
+
+                            <Skeleton
+                              className="h-4 w-1/2 mt-6"
+                              variant="rectangular"
+                            />
+                          </div>
+                        ) : (
+                          <>
+                            <div className="flex md:text-justify w-full text-left">
+                              <a className="text-base capitalize  overflow-hidden">
+                                <span className=" font-bold">
+                                  {item?.title}
+                                </span>
+                              </a>
+                            </div>
+                          </>
+                        )}
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
+                )}
+              </>
             );
           })}
         </div>

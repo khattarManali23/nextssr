@@ -31,7 +31,7 @@ export default function RootLayout({ children }) {
   }
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body>
         <QueryClientProvider client={queryClient}>
           <Provider store={store}>
             <ThemeProvider>
