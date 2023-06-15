@@ -94,14 +94,7 @@ export default function NewsPage({ data, news }) {
                         />
                       </div>
 
-                      <div
-                        className="w-fit  mt-2.5"
-                        style={{
-                          position: "absolute",
-                          top: "4",
-                          left: "0",
-                        }}
-                      >
+                      <div className="w-fit  mt-2.5">
                         <div
                           className="px-4 py-[0.4rem] font-sm w-fit  
                                 font-semibold text-white flex text-center justify-center capitalize cursor-pointer"

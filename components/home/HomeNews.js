@@ -14,7 +14,15 @@ export default function HomeNews({ newsAllData = [], newsLoading }) {
   };
 
   return (
-    <div className="flex justify-center w-full text-center   font-sans">
+    <div
+      className="flex justify-center w-full text-center   font-sans"
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        width: "100%",
+      }}
+    >
       <div className="container md:mt-8">
         <div className="grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1">
           {newsLoading ? (

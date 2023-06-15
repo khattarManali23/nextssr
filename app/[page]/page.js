@@ -17,9 +17,9 @@ export default async function Page({ params }) {
   data = data.data;
 
   return (
-    <>
+    <div className="w-full flex justify-center items-center">
       <NewsPage data={data} />
-    </>
+    </div>
   );
 }
 

@@ -30,7 +30,7 @@ export default async function Home() {
   newsData = newsData.data;
 
   return (
-    <div className="flex">
+    <div className="flex justify-center items-center">
       <HomePage allCategories={data} allNews={newsData} />
     </div>
   );
