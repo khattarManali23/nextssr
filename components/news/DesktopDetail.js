@@ -145,16 +145,18 @@ const DesktopDetail = ({ oneNewsData, data }) => {
                       {console.log(item, "item")}
                       {item?.news_desc}
                     </p>
-                    <div>
-                      <Image
-                        height={1000}
-                        width={1000}
-                        src={item?.images}
-                        alt="alt"
-                        loading="lazy"
-                        className="w-full h-auto object-covor"
-                      />
-                    </div>
+                    {item?.images && (
+                      <div>
+                        <Image
+                          height={1000}
+                          width={1000}
+                          src={item?.images}
+                          alt="alt"
+                          loading="lazy"
+                          className="w-full h-auto object-covor"
+                        />
+                      </div>
+                    )}
                     {item?.facebook_link && (
                       <div class="container">
                         <iframe
