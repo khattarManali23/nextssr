@@ -59,7 +59,7 @@ export default function MobileSidebar() {
               >
                 <p
                   className="m-0 w-36 flex items-center px-5 h-10 text-sm uppercase text-[#3e4152]"
-                  onClick={() => push(`/news/${item?.slug}`)}
+                  onClick={() => push(`/${item?.slug}`)}
                 >
                   {item?.name}
                 </p>

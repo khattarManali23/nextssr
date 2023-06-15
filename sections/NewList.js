@@ -46,32 +46,6 @@ export default function NewsPage({ data, news }) {
 
   return (
     <>
-      {/* <DefaultSeo
-        title={news?.name}
-        description="news page description"
-        openGraph={{
-          url: "https://www.terralogic.com/",
-
-          title: news?.name,
-          description: " news page description",
-          images: [
-            {
-              url: news?.icon,
-              width: 800,
-              height: 600,
-              alt: news?.name,
-            },
-          ],
-          site_name: SITE_NAME,
-        }}
-        twitter={{
-          handle: "@terralogic",
-          site: "@terralogic",
-          cardType: "summary_large_image",
-        }}
-      /> */}
-
-      {/* desktop view */}
       <div className="md:block hidden font-sans my-6">
         <div className="flex justify-center w-full text-center">
           <div className="container mt-20 md:mx-0 mx-4 mb-20">
@@ -154,7 +128,7 @@ export default function NewsPage({ data, news }) {
               bg-white py-2
               z-20`}
               >
-                <div className="mx-4 ">
+                <div className="mx-4 w-screen overflow-scroll ">
                   <div
                     className="flex flex-row  
              gap-y-2 overflow-scroll "
@@ -176,7 +150,7 @@ export default function NewsPage({ data, news }) {
                             <Link
                               prefetch={true}
                               key={index}
-                              href={`/news/${item?.slug}`}
+                              href={`/${item?.slug}`}
                               className={`flex justify-center text-sm items-center ${
                                 slug == item?.slug
                                   ? "tab_button_active  py-2 px-4"

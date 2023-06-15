@@ -33,7 +33,7 @@ export default function NewsPage({
   }, [newsAllData]);
 
   const filterCardData = (slug) => {
-    push(`/news/${slug}`);
+    push(`/${slug}`);
   };
 
   return (
@@ -42,28 +42,28 @@ export default function NewsPage({
         <div className="container">
           <div className="w-full flex flex-col">
             <div
-              className={` 
+              className={`
              ${
                scrolled === true
-                 ? `top-0 sticky shadow-shadow-primary scroll-smooth`
+                 ? `top-0 sticky shadow-shadow-primary `
                  : `top-40`
              }
               bg-white py-2 
               z-20`}
             >
-              <div
-                className={`
-             ${
-               scrolled === true
-                 ? `top-0 sticky shadow-shadow-primary scroll-smooth`
-                 : `top-40`
-             }
-              bg-white py-2  z-20`}
-              >
-                <div className="mx-4 ">
+              <div>
+                <div
+                  className="mx-4   w-screen overflow-scroll
+               
+
+
+
+                
+                 "
+                >
                   <div
                     className="flex flex-row
-             gap-y-2 overflow-scroll"
+             gap-y-2 "
                   >
                     <div
                       className={`flex justify-center text-sm uppercase  w-54 items-center font-medium
@@ -105,7 +105,6 @@ export default function NewsPage({
                 </div>
               </div>
             </div>
-
             <div className="flex flex-col justify-center w-full">
               <CategoriesBaseCard
                 cardData={cardData}

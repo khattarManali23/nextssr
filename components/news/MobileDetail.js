@@ -116,7 +116,7 @@ const DesktopDetail = ({ oneNewsData = {}, data }) => {
              }
               bg-white py-2  z-20`}
       >
-        <div className="mx-4 ">
+        <div className="mx-4  w-screen overflow-scroll">
           <div
             className="flex flex-row
              gap-y-2 overflow-scroll"
@@ -142,7 +142,7 @@ const DesktopDetail = ({ oneNewsData = {}, data }) => {
                   ) : (
                     <div
                       key={index}
-                      onClick={() => filterCardData(item?.slug)}
+                      onClick={() => push(`/${item?.slug}`)}
                       className={`flex justify-center text-sm items-center font-medium ${
                         openTab == item?.slug
                           ? "tab_button_active   py-2 px-4"

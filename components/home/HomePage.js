@@ -17,16 +17,16 @@ const DynamicMobileHomeNews = dynamic(() => import("./MobileHomeNews"));
 export default function HomePage({ allCategories, allNews }) {
   return (
     <div>
-      <div className="md:flex justify-center items-center hidden">
+      <div className="sm:flex justify-center items-center hidden">
         <DynamicHomeNews newsAllData={allNews} />
       </div>
-      <div className="md:hidden">
+      <div className="sm:hidden block  ">
         <DynamicMobileHomeNews
           categories={allCategories}
           newsAllData={allNews}
         />
       </div>
-      <TredingNews />
+      {/* <TredingNews /> */}
     </div>
   );
 }
