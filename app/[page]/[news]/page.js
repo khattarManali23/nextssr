@@ -28,18 +28,19 @@ export async function generateMetadata({ params, searchParams }, parent) {
   );
   let data = await res.json();
   data = data.data;
+  console.log(data, data);
 
   const previousImages = (await parent).openGraph?.images || [];
 
   return {
     title: data.title,
-    description: data.description,
+    description: data.news_desc,
     openGraph: {
       title: data.title,
-      description: data.description,
+      description: data.news_desc,
       images: [
         {
-          url: data.image,
+          url: data.attach_file,
           width: 800,
           height: 600,
           alt: data.title,
