@@ -78,10 +78,10 @@ export default function NewsPage({ data, news }) {
             <main>
               {data?.map((item, index) => {
                 return (
-                  <article className="relative mb-10 mx-4 " key={index}>
+                  <article className=" mb-10 mx-4 " key={index}>
                     <div className="   hoverline">
                       <div
-                        className=" h-full w-full overflow-hidden cursor-pointer"
+                        className=" h-full w-full overflow-hidden relative cursor-pointer"
                         onClick={() => push(`/page/${item?.seoSlug}`)}
                       >
                         <Image
@@ -96,7 +96,7 @@ export default function NewsPage({ data, news }) {
 
                       <div className="w-fit  mt-2.5">
                         <div
-                          className="px-4 py-[0.4rem] font-sm w-fit  
+                          className="px-4 py-[0.4rem] font-sm w-fit
                                 font-semibold text-white flex text-center justify-center capitalize cursor-pointer"
                           style={{
                             backgroundColor:

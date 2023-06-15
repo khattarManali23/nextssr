@@ -1,13 +1,7 @@
 import NewsPage from "@/sections/NewList";
-// export const metadata = {
-//   title: "My page mnali",
-//   description: "This will be the page meta description",
-//   // ...
-// };
 
 export default async function Page({ params }) {
   const res = await fetch(
-    // `https://jsonplaceholder.typicode.com/posts/${params.page}`,
     `https://api-vande-rastra.vercel.app/api/v1/newsmanagement/allByCategory/${params.page}`,
     {
       cache: "no-store",
@@ -24,19 +18,32 @@ export default async function Page({ params }) {
 }
 
 export async function generateMetadata({ params, searchParams }, parent) {
-  // read route params
-  const id = params.id;
-
   // fetch data
-  const product = await fetch(
-    `https://api-vande-rastra.vercel.app/api/v1/newsmanagement/allByCategory/${params.page}`
+  const category = await fetch(
+    "https://api-vande-rastra.vercel.app/api/v1/category/all"
   ).then((res) => res.json());
-  const data = product.data;
+  let categoryData = category.categorys;
 
-  // optionally access and extend (rather than replace) parent metadata
+  categoryData = categoryData.filter((item) => item.slug === params.page);
+
+  // const previousImages = (await parent).openGraph?.images || [];
   const previousImages = (await parent).openGraph?.images || [];
 
   return {
-    title: data[0].title,
+    title: categoryData[0].name,
+    description: categoryData[0].description,
+    openGraph: {
+      title: categoryData[0].name,
+      description: categoryData[0].description,
+      images: [
+        {
+          url: categoryData[0].icon,
+          width: 800,
+          height: 600,
+          alt: categoryData[0].name,
+        },
+        ...previousImages,
+      ],
+    },
   };
 }
