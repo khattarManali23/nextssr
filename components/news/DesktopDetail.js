@@ -223,31 +223,38 @@ const DesktopDetail = ({ oneNewsData, data }) => {
               <FacebookShareButton
                 url={`https://www.vanderashtra.com/${currentUrl}`}
               >
-                <BsFacebook size={40} className="m-2" />
+                <BsFacebook
+                  size={50}
+                  className="m-2  bg-blue-400 text-white p-2"
+                />
               </FacebookShareButton>
-
-              <TwitterShareButton
-                url={`https://www.vanderashtra.com/${currentUrl}`}
-              >
-                <BsTwitter size={40} className="m-2" />
-              </TwitterShareButton>
-
               <WhatsappShareButton
                 url={`https://www.vanderashtra.com/${currentUrl}`}
               >
-                <BsWhatsapp size={40} className="m-2" />
+                <BsWhatsapp
+                  size={50}
+                  className="m-2 bg-green-400 p-2 rounded-lg text-white"
+                />
               </WhatsappShareButton>
+              <TwitterShareButton
+                url={`https://www.vanderashtra.com/${currentUrl}`}
+              >
+                <BsTwitter
+                  size={50}
+                  className="m-2 bg-blue-400  p-2 rounded-lg text-white "
+                />
+              </TwitterShareButton>
             </Box>
 
             <div className="pt-0 md:pt-4 pb-4 ">
               <div className="h-[115px] md:h-[250px] md:w-3/4 w-full">
-                <div className="relative py-4 w-full h-full border-2 border-red">
+                <div className="relative py-4 w-full h-full">
                   <Image
                     fill
                     alt="alt"
                     src={PicOne}
                     loading="lazy"
-                    className="object-cover"
+                    className="object-contain"
                     onClick={() => {
                       window.open(data[0]?.link, "_blank");
                     }}
