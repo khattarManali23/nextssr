@@ -56,8 +56,8 @@ export default function HomeNews({ newsAllData = [], newsLoading }) {
             </div>
           )}
 
-          <div className="p-4">
-            <div className="flex w-full justify-between items-center mt-[-40px]">
+          <div className="p-4 ">
+            <div className="flex w-full justify-between items-center mb-6 mt-[-20px]">
               <h4 className="lg:text-3xl md:text-2xl font-extrabold  font-sans">
                 Recent News
               </h4>

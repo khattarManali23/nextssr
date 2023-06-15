@@ -72,16 +72,16 @@ export default function NewsPage({ data, news }) {
       /> */}
 
       {/* desktop view */}
-      <div className="md:block hidden font-sans">
+      <div className="md:block hidden font-sans my-6">
         <div className="flex justify-center w-full text-center">
           <div className="container mt-20 md:mx-0 mx-4 mb-20">
             <main>
               {data?.map((item, index) => {
                 return (
-                  <article className=" mb-10 mx-4 " key={index}>
+                  <article className="relative mb-10 mx-4 " key={index}>
                     <div className="   hoverline">
                       <div
-                        className="relative h-full w-full overflow-hidden cursor-pointer"
+                        className=" h-full w-full overflow-hidden cursor-pointer"
                         onClick={() => push(`/page/${item?.seoSlug}`)}
                       >
                         <Image
@@ -94,9 +94,16 @@ export default function NewsPage({ data, news }) {
                         />
                       </div>
 
-                      <div className="w-fit relative mt-2.5">
+                      <div
+                        className="w-fit  mt-2.5"
+                        style={{
+                          position: "absolute",
+                          top: "4",
+                          left: "0",
+                        }}
+                      >
                         <div
-                          className="px-4 py-[0.4rem] font-sm w-fit  absolute bottom-8 left-0
+                          className="px-4 py-[0.4rem] font-sm w-fit  
                                 font-semibold text-white flex text-center justify-center capitalize cursor-pointer"
                           style={{
                             backgroundColor:
