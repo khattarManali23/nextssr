@@ -81,7 +81,7 @@ const DesktopDetail = ({ oneNewsData, data }) => {
   );
 
   if (newsError) return <ErrorScreen />;
-
+  console.log(edited, "edited");
   return (
     <>
       <Grid container>
@@ -190,7 +190,11 @@ const DesktopDetail = ({ oneNewsData, data }) => {
                     </div>
                     {item?.youtube_link && (
                       <iframe
-                        src={item.youtube_link}
+                        src={`https://www.youtube.com/embed/${
+                          item?.youtube_link?.split("/")[
+                            item?.youtube_link?.split("/").length - 1
+                          ]
+                        }`}
                         style={{
                           border: "none",
                           overflow: "hidden",
