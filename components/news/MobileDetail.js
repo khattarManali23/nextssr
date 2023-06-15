@@ -12,6 +12,8 @@ import PicOne from "../../assets/svg/Screenshot.png";
 import { NewsDetail } from "../../data/NewsDetail";
 import { FadeIn } from "../animate";
 import { AppCarousel, ErrorScreen } from "../basics";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from "react-responsive-carousel";
 import CategoriesBaseCard from "../home/CategoriesBaseCard";
 import {
   FacebookShareButton,
@@ -176,7 +178,7 @@ const DesktopDetail = ({ oneNewsData = {}, data }) => {
           </div>
         </Grid>
       </Grid>
-      <div className="mx-auto my-10 container">
+      <div className="mx-auto mt-10 container">
         <div class="grid lg:grid-cols-7 md:grid-cols-1 sm:grid-cols-1 grid-cols-1 md:gap-8 lg:gap-8">
           <div
             className="lg:col-span-5 md:col-span-4 px-4 md:px-0"
@@ -375,19 +377,16 @@ export const OtherData = ({ newsAllData = [] }) => {
   return (
     <Box>
       <Box>
-        <div className="m-auto overflow-hidden">
+        <div className="m-auto overflow-hidden ">
           {advertisementLoading ? (
             <Skeleton className="h-60 md:h-80 w-full" variant="rectangular" />
           ) : (
-            <AppCarousel
-              {...{
-                slidesToShow: 1,
-                fade: false,
-                autoplay: true,
-                infinite: NewsDetail?.length > 1 ? true : false,
-                // autoplaySpped: 1000,
-                autoplaySpeed: 2000,
-              }}
+            <Carousel
+              autoPlay={true}
+              infiniteLoop={true}
+              showThumbs={false}
+              showStatus={false}
+              showIndicators={true}
             >
               {advertisementAllData?.map((item, index) => {
                 return (
@@ -405,7 +404,7 @@ export const OtherData = ({ newsAllData = [] }) => {
                   </div>
                 );
               })}
-            </AppCarousel>
+            </Carousel>
           )}
         </div>
 
