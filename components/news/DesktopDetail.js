@@ -31,6 +31,7 @@ const DesktopDetail = ({ oneNewsData, data }) => {
     categorySlug = "",
   } = oneNewsData;
 
+  console.log("oneNewsData", oneNewsData);
   let edited = descriptions?.map((item) => {
     return {
       ...item,
@@ -138,13 +139,22 @@ const DesktopDetail = ({ oneNewsData, data }) => {
                   <div
                     key={index}
                     className="text-lg font-normal 
-                    flex md:text-justify text-left  leading- cursor-pointer font-sans"
+                    flex md:text-justify text-left flex-col  leading- cursor-pointer font-sans"
                   >
                     <p className="mb-0 text-left md:text-justify" key={index}>
                       {console.log(item, "item")}
                       {item?.news_desc}
                     </p>
-
+                    <div>
+                      <Image
+                        height={1000}
+                        width={1000}
+                        src={item?.images}
+                        alt="alt"
+                        loading="lazy"
+                        className="w-full h-auto object-covor"
+                      />
+                    </div>
                     {item?.facebook_link && (
                       <div class="container">
                         <iframe
