@@ -26,7 +26,7 @@ export default function HomePage({ allCategories, allNews }) {
           newsAllData={allNews}
         />
       </div>
-      {/* <TredingNews /> */}
+      <TredingNews />
     </div>
   );
 }

@@ -1,8 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { useGetAllNews } from "../../services/news";
 
 function TredingNews() {
+  const { push } = useRouter();
   const [color, setColor] = useState("");
 
   const { data, isError, isLoading } = useGetAllNews();
@@ -34,8 +36,11 @@ function TredingNews() {
               <div
                 class="rounded overflow-hidden sm:my-2 flex justify-between items-center "
                 key={index}
+                onClick={() => {
+                  push(`/page/${item?.seoSlug}`);
+                }}
               >
-                <a href="#">
+                <a href={`/page/${item?.seoSlug}`}>
                   <div class="relative">
                     <img
                       class="sm:w-36 sm:h-36 w-20 h-20 object-cover"
